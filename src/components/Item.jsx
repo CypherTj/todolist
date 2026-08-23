@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function Item({ id, text, status, setStatus }) {
     const [checkbox, setCheckBox] = useState(status == 'completed')
