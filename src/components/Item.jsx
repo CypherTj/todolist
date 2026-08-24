@@ -20,7 +20,7 @@ export default function Item({ id, text, status, setStatus }) {
             <div className="view-mode task-content">
                 <input type="checkbox" className="custom-checkbox" checked={checkbox} onChange={() => {
                     setCheckBox(!checkbox);
-                    setStatus(id, 'completed');
+                    setStatus(id, !checkbox ? 'completed' : 'active');
                     setItemState(!checkbox ? 'completed' : 'active');
                 }} />
                 <span className="task-text">{itemText}</span>

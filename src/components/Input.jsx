@@ -5,25 +5,25 @@ export default function MainInput({ list, setTodoList }) {
     const [error, setError] = useState(false);
 
     const isValidInput = (data) => {
-        if (data && !data.trim()) return false;
+        if (!data || !data.trim()) return false;
         return true;
     }
     const handleInput = (e) => {
-        if (!isValidInput(e.target.value)) {
-            setError(true)
-            return;
-        }
         setInputText(e.target.value)
         setError(false)
     }
     const handleAddItem = () => {
-        if (error) return;
+        if (!inputText) {
+            setError(true)
+            return
+        }
         setTodoList({
             id: list[list.length - 1].id + 1,
             text: inputText,
-            status: 'Active'
+            status: 'active'
         })
         setInputText('')
+        setError(false)
     }
     return (
         <div className="header">
